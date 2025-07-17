@@ -4,8 +4,15 @@ import express from "express";
 import morgan from "morgan";
 import setupRoutes from "./routes/index.js";
 import cors from "cors";
-
+import { stripeWebhook } from "./controllers/app/subscriptionController.js"; // adjust path accordingly
+ 
 const app = express();
+app.use(
+  "/api/webhook/stripe",
+  express.raw({ type: "application/json" }),
+  stripeWebhook
+);
+
 
 app.use(morgan("dev"));
 app.use(express.json());

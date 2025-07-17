@@ -44,7 +44,7 @@ router.post(
 );
 
 router.post("/subscribe/pro", auth, createCheckoutSession);
-router.post("/webhook/stripe", express.raw({ type: "application/json" }), stripeWebhook); 
+//router.post("/webhook/stripe", express.raw({ type: "application/json" }), stripeWebhook); 
 router.get("/subscription/status", auth, getUserSubscriptionStatus);
 
 export default router;
